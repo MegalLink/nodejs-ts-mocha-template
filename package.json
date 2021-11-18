@@ -1,0 +1,37 @@
+{
+  "name": "nodets",
+  "version": "1.0.0",
+  "description": "Testing mocha an chai with ts",
+  "main": "dist/index.js",
+  "scripts": {
+    "prebuild": "clear && tslint -c tslint.json -p tsconfig.json --fix",
+    "build": "webpack",
+    "postbuild": "npm run test",
+    "prestart": "npm run build",
+    "start": "node .",
+    "coverage": "nyc --reporter=text --include src npm test",
+    "test": "mocha -r ts-node/register src/**/*.spec.ts",
+    "dev": "tsc",
+    "postdev": "node dist/index.js"
+  },
+  "author": "Jeferson Narvaez",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.2.22",
+    "@types/express": "^4.17.13",
+    "@types/mocha": "^9.0.0",
+    "@types/node": "^16.11.7",
+    "chai": "^4.3.4",
+    "mocha": "^9.1.3",
+    "nyc": "^15.1.0",
+    "ts-loader": "^9.2.6",
+    "ts-node": "^10.4.0",
+    "tslint": "^6.1.3",
+    "typescript": "^4.5.2",
+    "webpack": "^5.64.1",
+    "webpack-cli": "^4.9.1"
+  }
+}
